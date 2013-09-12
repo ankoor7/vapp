@@ -132,10 +132,13 @@ ActiveRecord::Schema.define(:version => 20130903221129) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "role",                   :default => "user", :null => false
-    t.string   "firstname",                                  :null => false
-    t.string   "lastname",                                   :null => false
+    t.string   "firstname"
+    t.string   "lastname"
     t.string   "phone",                                      :null => false
     t.boolean  "t_and_c",                :default => false,  :null => false
+    t.string   "name"
+    t.string   "provider"
+    t.string   "uid"
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
     t.string   "image"

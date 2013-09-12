@@ -34,11 +34,15 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.string :authentication_token
 
       t.string :role, :null => false, :default => "user"
-      t.string :firstname, null: false
-      t.string :lastname, null: false
+      t.string :firstname
+      t.string :lastname
       t.string :phone, null: false
       t.boolean :t_and_c, null: false, :default => "false"
 
+      # Facbook login fields
+      t.string :name
+      t.string :provider
+      t.string :uid
 
       t.timestamps
     end
