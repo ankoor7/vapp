@@ -17,6 +17,7 @@
                 </div>
                 <button type="submit" class="btn">Submit</button>
               <% end %>
+            <%= render partial: "shared/alerts" %>
 
             <% if current_user %>
               <li><%= link_to "Dashboard", dashboard_path %></li>
