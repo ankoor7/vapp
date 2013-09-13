@@ -7,15 +7,8 @@ Vapp::Application.configure do
   config.action_mailer.delivery_method = :smtp
   # change to true to allow email to be sent during development
   config.action_mailer.perform_deliveries = false
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
-
-  config.action_mailer.smtp_settings = {
-  :address   => "smtp.mandrillapp.com",
-  :port      => 25,
-  :user_name => "MANDRILL_USERNAME",
-  :password  => "VAPP_MANDRILL_API_KEY"
-  }
 
   # carrierWave config
   CarrierWave.configure do |config|
