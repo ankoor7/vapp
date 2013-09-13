@@ -1,0 +1,12 @@
+- if can? :update, group
+  %div
+    %table.table
+      %tr
+        %th= "name"
+        %th= "phone"
+        %th= "email"
+      - group.leaders.each do |leader|
+        %tr
+          %td= "#{leader.firstname} #{leader.lastname}"
+          %td= leader.phone
+          %td= leader.email

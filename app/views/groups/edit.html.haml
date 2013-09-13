@@ -1,0 +1,10 @@
+%h1= "Edit group"
+
+%div.col-md-6
+  %div.form_container
+    = render 'form', group: @group
+
+%div.col-md-6
+  = render partial: "leaders_list", locals: {group: @group}
+
+= link_to 'Back', dashboard_path
