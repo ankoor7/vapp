@@ -22,6 +22,7 @@ gem "auto_html"
 gem 'ransack'
 gem 'rails_12factor'
 gem "haml-rails"
+gem "thin"
 
 group :development do
   gem 'pry-rails'
