@@ -1,14 +1,18 @@
 %div.user.col-md-12.col-sm-12.clearfix
-  %h1= "#{@user.firstname}"
+  %h1= "My Account"
 
   %div.user.profile.col-md-6.col-sm-12
-    %h2= "Profile:"
+    %h2= "My profile:"
     %p= "Name: #{@user.firstname} #{@user.lastname}"
     %p= "Email: #{@user.email}"
     %p= "Phone: #{@user.phone}"
+    = link_to 'Edit details', edit_user_registration_path
+    \|
+    = link_to 'Back', dashboard_path
 
   %div.user.groups.col-md-6.col-sm-12
-    %h2= "Groups:"
+    %h2= "My groups:"
     %ul
       - @user.led_groups.each do |group|
         %li= link_to group.name, group
+    = link_to 'Dashboard', dashboard_path

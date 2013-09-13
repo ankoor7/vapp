@@ -6,7 +6,27 @@ class UsersController < ApplicationController
     @groups = current_user.led_groups.includes(:events).page(params[:groups_page]).per(3)
   end
 
+  def search
+    if params[:search]
+      query = "'#{params[:search]}'"
+      @users = User.where("firstname ilike #{query} OR lastname ilike #{query} OR email ilike #{query}")
+    else
+      @users = User.all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js
+      format.json { render json: @users }
+    end
+  end
+
+
   def show
+    @user = User.includes(:led_groups).find(params[:id])
+  end
+
+  def account
     @user = User.includes(:led_groups).find(current_user.id)
   end
 

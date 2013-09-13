@@ -20,6 +20,7 @@ class Ability
       # check guests can see groups and events
       can :show, Group
       can :show, Event
+      can :show, User
 
   end
 end
