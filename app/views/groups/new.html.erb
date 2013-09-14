@@ -1,6 +1,8 @@
 <h1>Create a Group</h1>
 
-<div class="form_container">
-  <%= render 'form', group: @group %>
+<div class='col-md-6'>
+  <div class="form_container">
+    <%= render 'form', group: @group %>
+  </div>
+  <%= link_to 'Back', root_path %>
 </div>
-<%= link_to 'Back', root_path %>
