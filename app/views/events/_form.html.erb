@@ -1,4 +1,4 @@
-<%= form_for([@group,@event]) do |f| %>
+<%= form_for([@group,@event], html: { role: "form" }) do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -11,35 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, :class => "span6" %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :class => "span6", rows: 4 %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= select_datetime DateTime.now %>
-  </div>
-  <div class="field">
-    <%= f.label "Address" %><br />
-    <%= f.text_field :location, :class => "span6" %>
-  </div>
-  <div class="field">
-    <%= f.label "Causes" %><br />
-    <%= f.text_field :cause_list, :class => "span6" %>
-  </div>
-  <div class="field">
-    <%= f.label "Number of volunteers needed" %><br />
-    <%= f.select :number_volunteers, ((1..30).map {|i| [i,i] }), :class => "span2" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div>
+    <div class="form-group">
+      <%= f.label :name, class: "sr-only"  %>
+      <%= f.text_field :name, placeholder: "Event title", class: "form-control", autofocus: true  %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, class: "sr-only"  %>
+      <%= f.text_area :description, rows: 4, placeholder: "description", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image, class: "sr-only"  %>
+      <%= f.file_field :image %>
+    </div>
+    <div class="form-inline form-group">
+      <%= f.label :date, class: "sr-only"  %>
+      <%= select_datetime DateTime.now %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Address", class: "sr-only"  %>
+      <%= f.text_field :location, placeholder: "Location", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Causes", class: "sr-only"  %>
+      <%= f.text_field :cause_list, placeholder: "Causes", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Number of volunteers needed", class: "sr-only"  %>
+      <%= f.select :number_volunteers, ((1..30).map {|i| [i,i] }), {}, {class: "form-control"} %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

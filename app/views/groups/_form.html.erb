@@ -1,5 +1,5 @@
 <h2>Details</h2>
-<%= form_for(group) do |f| %>
+<%= form_for(group, html: { role: "form" }) do |f| %>
   <% if group.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -12,48 +12,49 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, :class => "span6" %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :class => "span6", rows: 4 %>
-  </div>
-  <div class="field">
-    <%= f.label :logo %><br />
-    <%= f.file_field :logo %>
-  </div>
-  <div class="field">
-    <%= f.label "Splash image (from flickr):" %><br />
-    <%= f.text_field :splash_image, :class => "span6 form_tooltip", title: "Enter the URL to a photo on flickr" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Video (from Youtube):" %><br />
-    <%= f.text_field :video, :class => "span6 form_tooltip", title: "Enter the URL to a YouTube video" %>
-  </div>
-  <div class="field">
-    <%= f.label "Causes" %><br />
-    <%= f.text_field :cause_list, :class => "span6" %>
-  </div>
-  <div class="field">
-    <%= f.label "Address" %><br />
-    <%= f.text_field :location, :class => "span6" %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email, :class => "span6" %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone, :class => "span6" %>
-  </div>
-  <div class="field">
-    <%= f.label :website %><br />
-    <%= f.text_field :website, :class => "span6" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div>
+    <div class="form-group">
+      <%= f.label :name, class: "sr-only"  %>
+      <%= f.text_field :name, placeholder: "Group name", class: "form-control", autofocus: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, class: "sr-only"  %>
+      <%= f.text_area :description, rows: 4, placeholder: "description", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :logo, class: "sr-only"  %>
+      <%= f.file_field :logo %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Splash image (from flickr):", class: "sr-only"  %>
+      <%= f.text_field :splash_image, class: "form-control form_tooltip", title: "Enter the URL to a photo on flickr", placeholder: "URL to a splash Image"%>
+    </div>
+    <div class="form-group">
+      <%= f.label "Video (from Youtube):", class: "sr-only"  %>
+      <%= f.text_field :video, class: "form-control form_tooltip", title: "Enter the URL to a YouTube video", placeholder: "URL to your YouTube video" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Causes", class: "sr-only"  %>
+      <%= f.text_field :cause_list, placeholder: "Causes", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Address", class: "sr-only"  %>
+      <%= f.text_field :location, placeholder: "Address", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, class: "sr-only"  %>
+      <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :phone, class: "sr-only"  %>
+      <%= f.text_field :phone, placeholder: "Phone number", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :website, class: "sr-only"  %>
+      <%= f.text_field :website, placeholder: "Website", class: "form-control"  %>
+    </div>
+    <div class="actions">
+      <%= f.submit class: "btn btn-info" %>
+    </div>
   </div>
 <% end %>

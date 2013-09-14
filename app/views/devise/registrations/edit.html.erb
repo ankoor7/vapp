@@ -5,7 +5,7 @@
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { method: :put, role: "form" }) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="form-group col-md-12">
+    <div class="form-group">
       <div><%= f.label :firstname, class: "sr-only" %><br />
         <%= f.text_field :firstname, placeholder: "First name", class: "form-control", autofocus: true %></div>
       <div><%= f.label :lastname, class: "sr-only" %><br />
