@@ -1,18 +1,18 @@
 <div class='row'>
 <% events.each_with_index do |event,count| %>
-    <% if count % 4 == 0 %>
-    </div>
-    <div class='row'>
-   <% end %>
-   <div class='event_wrapper col-sm-3 col-xs-12'>
-    <div class='event_summary'>
-      <div class='summary'>
+   <div class='event_wrapper col-md-4 col-sm-6 col-xs-12'>
+    <div class='event_summary clearfix'>
         <h3><%= link_to event.name, event %></h3>
-        <%= link_to(image_tag(event.group.logo.thumb.url, class: 'logo_image'), event.group) unless event.group.logo.thumb.url.nil? %>
-        <h5><%= event.date.strftime("%d/%m/%Y at %I:%M%P")  %></h5>
-        <%= render partial: "shared/list_causes", locals: {object: event} %>
+        <div class='row'>
+          <div class='logo_wrapper col-xs-6'>
+            <%= link_to(image_tag(event.group.logo.thumb.url, class: 'logo_image img-responsive'), event.group) unless event.group.logo.thumb.url.nil? %>
+          </div>
+          <div class='col-xs-6'>
+            <h5><%= event.date.strftime("%d/%m/%Y at %I:%M%P")  %></h5>
+            <%= render partial: "shared/list_causes", locals: {object: event} %>
+          </div>
+        </div>
         <%= render partial: "shared/event_signup_or_register", locals: {event: event} %>
-      </div>
     </div>
   </div>
 <% end %>

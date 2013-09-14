@@ -19,6 +19,10 @@ body {
   padding-bottom: 50px;
 }
 
+.event_summary .logo_wrapper {
+  height: 100px;
+  display: block;
+}
 
 /* Position alerts to hover on the top right below the menu*/
 .alert {
