@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.js
+      format.js { render nothing: true }
       format.json { render json: @users }
     end
   end

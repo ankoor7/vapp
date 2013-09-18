@@ -6,5 +6,12 @@
 
 %div.col-md-6
   = render partial: "leaders_list", locals: {group: @group}
+  = form_tag search_users_path, method: :get, remote: true do
+    %p
+      = text_field_tag :search, params[:search], placeholder: "Search for leaders", id: "leader_search"
+      = submit_tag "Go", :name => nil
 
-  = render partial: "shared/search_users"
+
+  / = render partial: "search_leaders"
+
+  %div#leaders

@@ -48,4 +48,8 @@ class User < ActiveRecord::Base
     led_groups.count > 0
   end
 
+  def become_leader_of(group)
+
+  end
+
 end

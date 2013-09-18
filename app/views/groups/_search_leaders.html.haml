@@ -1,0 +1,5 @@
+= form_tag search_users_path, method: :get, remote: true do
+  %p
+    = text_field_tag :search, params[:search], placeholder: "Search for leaders"
+    = submit_tag "Go", :name => nil
+
