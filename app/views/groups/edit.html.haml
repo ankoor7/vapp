@@ -18,4 +18,6 @@
     - unless @search_leaders.nil?
       %ul
         - @search_leaders.each do |leader|
-          %li= "#{leader.firstname} #{leader.lastname}"
+          %li
+            = "#{leader.firstname} #{leader.lastname}"
+            = button_to("invite", { controller: "groups_leaders", action: "invite", id: @group.id, invitee_id: leader.id }, class: "btn btn-info btn-xs")
