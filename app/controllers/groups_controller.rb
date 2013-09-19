@@ -17,6 +17,11 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    if params[:search]
+      query = "'#{params[:search]}'"
+      @search_leaders = User.where("firstname ilike #{query} OR lastname ilike #{query} OR email ilike #{query}")
+    end
+
     @group = Group.includes(:leaders).find(params[:id])
   end
 
